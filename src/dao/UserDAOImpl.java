@@ -25,6 +25,7 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(2, user.getEmail());
             ps.executeUpdate();
             System.out.println("User added Successfully.");
+            return;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUserById(int id) {
-        String query = "SELECT * FROM user WHERE id = ?;";
+        String query = "SELECT * FROM users WHERE id = ?;";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, id);
@@ -66,7 +67,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void updateUser(User user) {
-        String query = "UPDATE user SET name = ? , email = ?, WHERE id = ?;";
+        String query = "UPDATE users SET name = ? , email = ? WHERE id = ?;";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, user.getName());

@@ -6,7 +6,7 @@ public class DBConnection {
     public static Connection getConnection() throws SQLException {
         try {
             return DriverManager.getConnection(
-                    "jdbc:mysql://localhost::3036/userdb", "root", "US0726unaiz@"
+                    "jdbc:mysql://localhost:3306/userdb", "root", "US0726unaiz@"
             );
         } catch (SQLException e) {
             e.printStackTrace();
